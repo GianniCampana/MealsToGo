@@ -65,13 +65,13 @@ export default function Index() {
           options={{ headerShown: false }}
         />
         <Tab.Screen
-          name="Settings"
-          component={Settings}
+          name="Map"
+          component={Map}
           options={{ headerShown: false }}
         />
         <Tab.Screen
-          name="Map"
-          component={Map}
+          name="Settings"
+          component={Settings}
           options={{ headerShown: false }}
         />
       </Tab.Navigator>
