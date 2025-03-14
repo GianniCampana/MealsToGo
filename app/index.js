@@ -2,17 +2,17 @@ import React from "react";
 import { Text } from "react-native";
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import { ThemeProvider } from "styled-components/native";
-import { theme } from "../.expo/src/infrastructure/theme";
+import { theme } from "../src/infrastructure/theme";
 import {
   useFonts as useOswald,
   Oswald_400Regular,
 } from "@expo-google-fonts/oswald";
 import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { SafeArea } from "@/.expo/src/features/restaurants/components/utility/safe-area.component";
-import { RestaurantsScreen } from "@/.expo/src/features/restaurants/screens/restaurants.screen";
+import { SafeArea } from "../src/features/restaurants/components/utility/safe-area.component";
+import { RestaurantsScreen } from "../src/features/restaurants/screens/restaurants.screen";
 import { Ionicons } from "@expo/vector-icons";
-import { RestaurantsContextProvider } from "../.expo/src/services/restaurants/restaurants.context";
+import { RestaurantsContextProvider } from "../src/services/restaurants/restaurants.context";
 
 const Tab = createBottomTabNavigator();
 
