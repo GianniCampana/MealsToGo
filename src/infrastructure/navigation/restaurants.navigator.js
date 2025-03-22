@@ -17,7 +17,7 @@ export const RestaurantsNavigator = () => {
       }}
     >
       <RestaurantsStack.Screen
-        name="Restaurants"
+        name="RestaurantsScreen"
         component={RestaurantsScreen}
       />
       <RestaurantsStack.Screen
