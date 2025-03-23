@@ -9,6 +9,7 @@ import { Search } from "../components/search.component";
 const RestaurantList = styled(FlatList).attrs((props) => ({
   contentContainerStyle: {
     padding: 16,
+    paddingTop: 0,
   },
 }))``;
 
