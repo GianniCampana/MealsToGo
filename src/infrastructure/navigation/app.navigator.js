@@ -2,8 +2,6 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import { Text } from "react-native";
-
-import { SafeArea } from "../../features/restaurants/components/utility/safe-area.component";
 import { RestaurantsNavigator } from "./restaurants.navigator";
 import { MapScreen } from "../../features/map/screens/map.screen";
 
@@ -15,11 +13,7 @@ const TAB_ICON = {
   Settings: "settings",
 };
 
-const Settings = () => (
-  <SafeArea>
-    <Text>Settings</Text>
-  </SafeArea>
-);
+const Settings = () => <Text>Settings</Text>;
 
 const createScreenOptions = ({ route }) => {
   const iconName = TAB_ICON[route.name];

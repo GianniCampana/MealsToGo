@@ -1,17 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FlatList, ActivityIndicator, TouchableOpacity } from "react-native";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 import { Spacer } from "../components/spacer/spacer.component";
 import styled from "styled-components/native";
-import { SafeArea } from "../components/utility/safe-area.component";
 import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 import { Search } from "../components/search.component";
 
-const RestaurantList = styled(FlatList).attrs({
+const RestaurantList = styled(FlatList).attrs((props) => ({
   contentContainerStyle: {
     padding: 16,
   },
-})``;
+}))``;
 
 const Loading = styled(ActivityIndicator)`
   margin-left: -25px;
@@ -24,16 +23,19 @@ const LoadingContainer = styled.View`
 
 export const RestaurantsScreen = ({ navigation }) => {
   const { isloading, restaurants } = useContext(RestaurantsContext);
+  const [searchHeight, setSearchHeight] = useState(0);
+
   return (
-    <SafeArea>
+    <>
       {isloading && (
         <LoadingContainer>
           <Loading size={50} animating={true} color="lightblue" />
         </LoadingContainer>
       )}
-      <Search />
+      <Search onHeightChange={setSearchHeight} />
       <RestaurantList
         data={restaurants}
+        paddingTop={searchHeight}
         renderItem={({ item }) => {
           return (
             <TouchableOpacity
@@ -51,6 +53,6 @@ export const RestaurantsScreen = ({ navigation }) => {
         }}
         keyExtractor={(item) => item.name}
       />
-    </SafeArea>
+    </>
   );
 };
