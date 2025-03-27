@@ -16,18 +16,19 @@ export const Favourite = ({ restaurant }) => {
   const { favourites, addToFavourites, removeFromFavourites } =
     useContext(FavouritesContext);
   const isFavourite = favourites.find((r) => r.placeId === restaurant.placeId);
-  const onPress = () => {
-    !isFavourite
-      ? addToFavourites(restaurant)
-      : removeFromFavourites(restaurant);
-  };
 
   return (
-    <FavouriteButton onPress={onPress}>
+    <FavouriteButton
+      onPress={() =>
+        !isFavourite
+          ? addToFavourites(restaurant)
+          : removeFromFavourites(restaurant)
+      }
+    >
       <AntDesign
         name={isFavourite ? "heart" : "hearto"}
         size={24}
-        color={isFavourite ? "red" : "white"}
+        color={isFavourite ? "red" : "dark"}
       />
     </FavouriteButton>
   );

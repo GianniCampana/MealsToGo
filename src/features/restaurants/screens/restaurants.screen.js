@@ -5,6 +5,8 @@ import { Spacer } from "../../../components/spacer/spacer.component";
 import styled from "styled-components/native";
 import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 import { Search } from "../components/search.component";
+import { FavouritesBar } from "../../../components/favourites/favourites-bar.component";
+import { FavouritesContext } from "../../../services/favourites/favourites.context";
 
 const RestaurantList = styled(FlatList).attrs((props) => ({
   contentContainerStyle: {
@@ -26,6 +28,7 @@ export const RestaurantsScreen = ({ navigation }) => {
   const { isloading, restaurants } = useContext(RestaurantsContext);
   const [searchHeight, setSearchHeight] = useState(0);
   const [isToggled, setIsToggled] = useState(false);
+  const { favourites } = useContext(FavouritesContext);
 
   return (
     <>
@@ -39,6 +42,12 @@ export const RestaurantsScreen = ({ navigation }) => {
         isFavouritesToggled={!isToggled}
         onFavouritesToggled={() => setIsToggled(!isToggled)}
       />
+      {isToggled && (
+        <FavouritesBar
+          favourites={favourites}
+          onNavigate={navigation.navigate}
+        />
+      )}
       <RestaurantList
         data={restaurants}
         paddingTop={searchHeight}
@@ -46,7 +55,7 @@ export const RestaurantsScreen = ({ navigation }) => {
           return (
             <TouchableOpacity
               onPress={() =>
-                navigation.navigate("RestaurantDetail", {
+                navigation.navigate("RestaurantDetailScreen", {
                   restaurant: item,
                 })
               }
