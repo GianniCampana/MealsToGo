@@ -3,7 +3,6 @@ import { ScrollView } from "react-native-gesture-handler";
 import { List } from "react-native-paper";
 
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
-import { SafeArea } from "../../restaurants/components/utility/safe-area.component";
 import { useState } from "react";
 
 export const RestaurantDetailScreen = ({ route }) => {

@@ -5,8 +5,6 @@ const defaultTextStyles = (theme) => `
   font-weight: ${theme.fontWeights.regular};
   color: ${theme.colors.text.primary};
   flex-wrap: wrap;
-  margin-top: 0px;
-  margin-bottom: 0px;
 `;
 
 const body = (theme) => `

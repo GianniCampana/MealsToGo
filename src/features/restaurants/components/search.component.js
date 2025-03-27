@@ -12,7 +12,11 @@ const SearchContainer = styled.View`
   z-index: 999;
 `;
 
-export const Search = ({ onHeightChange }) => {
+export const Search = ({
+  onHeightChange,
+  isFavouritesToggled,
+  onFavouritesToggled,
+}) => {
   const { keyword, search } = useContext(LocationContext);
   const [searchKeyword, setSearchKeyword] = useState(keyword);
   const searchRef = useRef();
@@ -33,6 +37,8 @@ export const Search = ({ onHeightChange }) => {
   return (
     <SearchContainer ref={searchRef}>
       <Searchbar
+        icon={isFavouritesToggled ? "heart" : "heart-outline"}
+        onIconPress={onFavouritesToggled}
         placeholder="Search for a location"
         value={searchKeyword}
         onSubmitEditing={() => {

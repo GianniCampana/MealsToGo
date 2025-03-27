@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { FlatList, ActivityIndicator, TouchableOpacity } from "react-native";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
-import { Spacer } from "../components/spacer/spacer.component";
+import { Spacer } from "../../../components/spacer/spacer.component";
 import styled from "styled-components/native";
 import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 import { Search } from "../components/search.component";
@@ -25,6 +25,7 @@ const LoadingContainer = styled.View`
 export const RestaurantsScreen = ({ navigation }) => {
   const { isloading, restaurants } = useContext(RestaurantsContext);
   const [searchHeight, setSearchHeight] = useState(0);
+  const [isToggled, setIsToggled] = useState(false);
 
   return (
     <>
@@ -33,7 +34,11 @@ export const RestaurantsScreen = ({ navigation }) => {
           <Loading size={50} animating={true} color="lightblue" />
         </LoadingContainer>
       )}
-      <Search onHeightChange={setSearchHeight} />
+      <Search
+        onHeightChange={setSearchHeight}
+        isFavouritesToggled={!isToggled}
+        onFavouritesToggled={() => setIsToggled(!isToggled)}
+      />
       <RestaurantList
         data={restaurants}
         paddingTop={searchHeight}

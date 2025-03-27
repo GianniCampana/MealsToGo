@@ -6,13 +6,14 @@ import { LocationContext } from "../../../services/location/location.context";
 import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 import { Search } from "../components/search.components";
 import { MapCallout } from "../components/map-callout.component";
+import { Platform } from "react-native";
 
 const Map = styled(MapView)`
   height: 100%;
   width: 100%;
 `;
 
-export const MapScreen = () => {
+export const MapScreen = ({ navigation }) => {
   const { location } = useContext(LocationContext);
   const { restaurants = [] } = useContext(RestaurantsContext);
 
@@ -37,18 +38,29 @@ export const MapScreen = () => {
           latitudeDelta: latDelta,
           longitudeDelta: 0.02,
         }}
+        mapType={Platform.OS === "android" ? "standard" : "standard"}
+        androidLayerType="hardware"
+        googleRenderer="LEGACY"
       >
         {restaurants.map((restaurant) => {
           return (
             <Marker
               key={restaurant.name}
-              title={restaurant.name}
               coordinate={{
                 latitude: restaurant.geometry.location.lat,
                 longitude: restaurant.geometry.location.lng,
               }}
             >
-              <Callout>
+              <Callout
+                onPress={() =>
+                  navigation.navigate("Restaurants", {
+                    screen: "RestaurantDetailScreen",
+                    params: {
+                      restaurant,
+                    },
+                  })
+                }
+              >
                 <MapCallout restaurant={restaurant} />
               </Callout>
             </Marker>

@@ -1,5 +1,5 @@
 import { Stack } from "expo-router";
-import { SafeArea } from "@/src/features/restaurants/components/utility/safe-area.component";
+import { SafeArea } from "../src/components/utility/safe-area.component"
 
 export default function RootLayout() {
   return (

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Card } from "react-native-paper";
-import { Text } from "../components/typography/text.component";
+import { Text } from "../../../components/typography/text.component";
 
 export const Address = styled(Text)`
   font-family: ${(props) => props.theme.fonts.body};
