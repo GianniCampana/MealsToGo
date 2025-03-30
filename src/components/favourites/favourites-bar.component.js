@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { ScrollView, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 import { Spacer } from "../spacer/spacer.component";
 import { CompactRestaurantInfo } from "../restaurant/compact-restaurant-info.component";
 import { Text } from "../typography/text.component";
-import { SafeArea } from "../utility/safe-area.component";
+import { FavouritesContext } from "@/src/services/favourites/favourites.context";
 
 const FavouritesWrapper = styled.View`
   padding: 10px;

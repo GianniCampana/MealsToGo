@@ -11,7 +11,6 @@ import { FavouritesContext } from "../../../services/favourites/favourites.conte
 const RestaurantList = styled(FlatList).attrs((props) => ({
   contentContainerStyle: {
     padding: 16,
-    paddingTop: 0,
   },
 }))``;
 
@@ -26,7 +25,6 @@ const LoadingContainer = styled.View`
 
 export const RestaurantsScreen = ({ navigation }) => {
   const { isloading, restaurants } = useContext(RestaurantsContext);
-  const [searchHeight, setSearchHeight] = useState(0);
   const [isToggled, setIsToggled] = useState(false);
   const { favourites } = useContext(FavouritesContext);
 
@@ -38,7 +36,6 @@ export const RestaurantsScreen = ({ navigation }) => {
         </LoadingContainer>
       )}
       <Search
-        onHeightChange={setSearchHeight}
         isFavouritesToggled={!isToggled}
         onFavouritesToggled={() => setIsToggled(!isToggled)}
       />
@@ -50,7 +47,6 @@ export const RestaurantsScreen = ({ navigation }) => {
       )}
       <RestaurantList
         data={restaurants}
-        paddingTop={searchHeight}
         renderItem={({ item }) => {
           return (
             <TouchableOpacity
