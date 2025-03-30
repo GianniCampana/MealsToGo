@@ -11,9 +11,6 @@ import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
 import { theme } from "../src/infrastructure/theme";
 import { Navigation } from "../src/infrastructure/navigation";
 
-import { RestaurantsContextProvider } from "../src/services/restaurants/restaurants.context";
-import { LocationContextProvider } from "../src/services/location/location.context";
-import { FavouritesContextProvider } from "../src/services/favourites/favourites.context";
 import { SafeArea } from "@/src/components/utility/safe-area.component";
 import { initializeApp, getApps } from "firebase/app";
 import { AuthenticationContextProvider } from "@/src/services/authentication/authentication.context";
@@ -52,13 +49,7 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <SafeArea>
           <AuthenticationContextProvider>
-            <LocationContextProvider>
-              <RestaurantsContextProvider>
-                <FavouritesContextProvider>
-                  <Navigation />
-                </FavouritesContextProvider>
-              </RestaurantsContextProvider>
-            </LocationContextProvider>
+            <Navigation />
           </AuthenticationContextProvider>
         </SafeArea>
       </ThemeProvider>
