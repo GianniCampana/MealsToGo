@@ -20,7 +20,13 @@ export const AccountScreen = ({ navigation }) => {
           loop
           resizeMode="cover"
           source={require("../../../../assets/Watermelon.json")}
-          style={{ width: 400, height: 400 }}
+          style={{
+            width: 400,
+            height: 400,
+            position: "absolute",
+            bottom: 0,
+            left: 5,
+          }}
         />
       </AnimationWrapper>
       <Title>Meals To Go</Title>
