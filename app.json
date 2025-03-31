@@ -37,6 +37,21 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "85c739b3-e8dd-436f-b689-2a1d60f7a739"
+      }
+    },
+    "owner": "giannicampana",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/85c739b3-e8dd-436f-b689-2a1d60f7a739"
     }
   }
 }
