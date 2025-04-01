@@ -7,9 +7,13 @@
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
+    "newArchEnabled": false,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "Questa app necessita di accedere alla fotocamera per scattare foto e video.",
+        "NSMicrophoneUsageDescription": "Questa app necessita di accedere al microfono per registrare audio nei video."
+      }
     },
     "android": {
       "adaptiveIcon": {
