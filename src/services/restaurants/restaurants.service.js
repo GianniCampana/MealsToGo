@@ -1,22 +1,28 @@
-import { mocks, mockImages } from "../restaurants/mock";
 import camelize from "camelize";
 
 export const restaurantsRequest = (location) => {
-  return new Promise((resolve, reject) => {
-    const mock = mocks[location];
-    if (!mock) {
-      reject("not found");
-    }
-    resolve(mock);
-  });
+  console.log("locationRequest called with searchTerm:", location); // Log per verificare il parametro
+  const url = `http://192.168.1.14:8080/mealstogo-eea47/us-central1/placesNearby?location=${location}`;
+  console.log("URL:", url);
+
+  return fetch(url)
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Location not found");
+      } else {
+        console.log("Response OK");
+      }
+      return res.json();
+    })
+    .catch((err) => {
+      console.error("Error fetching location:", err);
+      throw err;
+    });
 };
 
 export const restaurantsTransform = ({ results = [] }) => {
+  console.log("Transforming results:", results); // Log per verificare i dati
   const mappedResults = results.map((restaurant) => {
-    restaurant.photos = restaurant.photos.map((p) => {
-      return mockImages[Math.ceil(Math.random() * (mockImages.length - 1))];
-    });
-
     return {
       ...restaurant,
       address: restaurant.vicinity,

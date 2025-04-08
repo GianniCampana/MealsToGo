@@ -12,7 +12,8 @@
       "supportsTablet": true,
       "infoPlist": {
         "NSCameraUsageDescription": "Questa app necessita di accedere alla fotocamera per scattare foto e video.",
-        "NSMicrophoneUsageDescription": "Questa app necessita di accedere al microfono per registrare audio nei video."
+        "NSMicrophoneUsageDescription": "Questa app necessita di accedere al microfono per registrare audio nei video.",
+        "NSAllowsArbitraryLoads": true
       }
     },
     "android": {
