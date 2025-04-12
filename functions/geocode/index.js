@@ -7,6 +7,7 @@ module.exports.geocodeRequest = (request, response) => {
 
   const { city } = url.parse(request.url, true).query;
   if (!city || !locationsMock[city]) {
+    console.error("Invalid or missing city parameter:", city);
     response.status(400).json({ error: "Invalid or missing city parameter" });
     return;
   }

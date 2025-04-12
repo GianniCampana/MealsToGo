@@ -1,7 +1,7 @@
 import camelize from "camelize";
 
 export const restaurantsRequest = (location) => {
-  console.log("locationRequest called with searchTerm:", location); // Log per verificare il parametro
+  console.log("locationRequest called with location:", location); // Log per verificare il parametro
   const url = `http://192.168.1.14:8080/mealstogo-eea47/us-central1/placesNearby?location=${location}`;
   console.log("URL:", url);
 

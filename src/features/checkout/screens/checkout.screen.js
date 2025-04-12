@@ -14,6 +14,7 @@ import {
   ClearButton,
 } from "../components/checkout.styles";
 import { RestaurantInfoCard } from "../../restaurants/components/restaurant-info-card.component";
+import { Alert } from "react-native";
 
 export const CheckoutScreen = () => {
   const { cart, restaurant, sum, clearCart } = useContext(CartContext);
@@ -64,6 +65,7 @@ export const CheckoutScreen = () => {
               "Payment Successful",
               "Your payment has been processed successfully!"
             );
+            clearCart();
           }}
         >
           Pay
